@@ -1,0 +1,54 @@
+{
+  "expo": {
+    "name": "Learn & Earn",
+    "slug": "learn-and-earn",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "info.chillbreeze.learnandearn"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "info.chillbreeze.learnandearn",
+      "blockedPermissions": [
+        "android.permission.WRITE_CONTACTS",
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-contacts",
+        {
+          "contactsPermission": "Choose a contact to preview its name and phone number. Nothing is uploaded without your confirmation."
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Read a single approximate location only when you choose to share it. Upload requires separate confirmation."
+        }
+      ],
+      "expo-notifications"
+    ],
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  }
+}

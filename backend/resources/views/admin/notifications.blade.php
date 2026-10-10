@@ -1,0 +1,2 @@
+@extends('admin.layout')
+@section('content')<h1>Announcements</h1><section><form method="post" action="/admin/notifications" onsubmit="return confirm('Send this announcement to active users?')">@csrf<label>Title<input name="title" required maxlength="120"></label><label>Message<textarea name="body" required maxlength="2000"></textarea></label><button>Send in-app announcement</button></form></section>@endsection

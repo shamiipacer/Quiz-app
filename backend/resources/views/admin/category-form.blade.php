@@ -1,0 +1,3 @@
+<form method="post" action="/admin/categories/{{ $item->id ?? '' }}">@csrf
+@foreach(['name'=>'Name','description'=>'Description','icon'=>'Icon name','display_order'=>'Display order','daily_limit'=>'Daily question limit','default_reward'=>'Default coin reward'] as $field=>$label)<label>{{ $label }}<input name="{{ $field }}" value="{{ $item->$field ?? match($field){'icon'=>'book','daily_limit'=>2,'default_reward'=>10,'display_order'=>0,default=>''} }}" required></label>@endforeach
+<label>Status<select name="active"><option value="1" @selected(($item->active ?? true))>Active</option><option value="0" @selected(isset($item) && !$item->active)>Inactive</option></select></label><button>Save category</button></form>

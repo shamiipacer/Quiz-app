@@ -1,0 +1,2 @@
+@extends('admin.layout')
+@section('content')<h1>Reset your password</h1><section><form method="post" action="/reset-password">@csrf<input type="hidden" name="token" value="{{ $token }}"><label>Email<input type="email" name="email" value="{{ request('email') }}" required></label><label>New password (12+ characters, letters and numbers)<input type="password" name="password" required minlength="12"></label><label>Confirm password<input type="password" name="password_confirmation" required minlength="12"></label><button>Reset password</button></form></section>@endsection
