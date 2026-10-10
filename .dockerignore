@@ -3,3 +3,5 @@ mobile/node_modules
 backend/vendor
 backend/.env
 .env
+
+/downloads/

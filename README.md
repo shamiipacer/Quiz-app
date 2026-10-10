@@ -18,3 +18,5 @@ Read [architecture and milestones](docs/architecture.md), [API contract](docs/ap
 This repository is an actively developed application, **not a certified production release**. Physical Android/iOS validation, store signing, production email, push delivery, backup restore drills, legal approval and independent security review are release requirements. See the documented limitations before deployment.
 
 For Hostinger PHP/MySQL hosting at `chillbreeze.info`, follow [the Hostinger deployment guide](docs/hostinger.md). The prepared `dist/hostinger.zip` includes production dependencies and a public/private folder layout. The mobile app targets `https://chillbreeze.info/api/v1`; the EAS preview profile explicitly builds an APK. Local ARM64 test APK builds use `scripts/build-test-apk.sh` with the Android SDK and Java toolchains installed.
+
+Android test APK: [download Learn & Earn](https://github.com/shamiipacer/Quiz-app/raw/refs/heads/main/downloads/learn-and-earn-test.apk). This standalone ARM64 build uses the template test signing key. The backend at `https://chillbreeze.info/api/v1` must be deployed before authentication and quizzes work.
