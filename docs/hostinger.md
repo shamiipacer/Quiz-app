@@ -4,7 +4,7 @@ This guide targets Hostinger web hosting with PHP, MySQL, SSH and cron jobs. If 
 
 ## 1. Prepare the domain and hosting
 
-In hPanel, attach your domain/subdomain (recommended: `chillbreeze.info`), enable its SSL certificate and force HTTPS. Select PHP 8.4 (8.3 also satisfies Laravel requirements). Enable PDO MySQL, mbstring, OpenSSL, XML/DOM, ctype, fileinfo, tokenizer, session, filter and zip extensions. Enable SSH if supported by your plan. Select the matching PHP binary for both SSH and cron; confirm `php -v` and `php -m`.
+In hPanel, attach your domain/subdomain (recommended: `chillbreeze.info`), enable its SSL certificate and force HTTPS. Select PHP 8.4.1 or newer in the PHP 8.4 series; the locked Symfony dependencies require it. Enable PDO MySQL, mbstring, OpenSSL, XML/DOM, ctype, fileinfo, tokenizer, session, filter and zip extensions. Enable SSH if supported by your plan. Select the matching PHP binary for both SSH and cron; confirm `php -v` and `php -m`.
 
 Create a MySQL database and user in hPanel and record the exact prefixed names and database host shown there. Do not reuse the administrator password as a database password.
 
@@ -102,7 +102,7 @@ For Google Play use the production profile (AAB); store distribution requires yo
 
 For a local test build, install Java 21 and a discoverable Java 17 toolchain, Android SDK 36, build-tools 35.0.0 and 36.0.0, NDK 27.1.12297006 and CMake 3.22.1; set `ANDROID_HOME` and run `scripts/build-test-apk.sh` from a Bash terminal. It builds an ARM64 standalone APK using the template test signing key. This is for sideload testing only; use an owned signing key/EAS for distribution. A build signed with a different key cannot update this test installation: uninstall the test app before installing your separately signed production app. It requires Android 7.0 or newer on an ARM64 device.
 
-The current cloud APK attempt is blocked by HTTP 403 from the environment proxy for `repo.reactnative.dev`, the official React Native binary repository reached through Maven. Its domain addition is saved in the cloud environment draft; publish it in environment settings and retry the build in an environment using the updated network rules. No APK has been generated yet. EAS is an alternative after signing into your Expo account.
+The cloud native build completed after the React Native repository network access became available. The preview release contains `learn-and-earn-test.apk`, an ARM64 standalone APK signed with the template test key. APK signature, archive integrity, embedded HTTPS API URL, and blocked permissions were checked; physical-device behavior has not been validated. Registration, login and quizzes require the backend to be deployed at `https://chillbreeze.info/api/v1`. Use your own signing key before public production distribution.
 
 ## 7. Backups and updates
 
